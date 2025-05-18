@@ -77,7 +77,7 @@ export const getCurrentUser = async( userId: number | undefined ): Promise<UserI
 
 
 export const verifyAuthToken = async (token: string): Promise<UserInstance | null> => {
-  const decoded = verifyToken(token);
-  if (!decoded) return null;
-  return await getCurrentUser(decoded.id);
+    const decoded = verifyToken(token);
+    if (!decoded) return null;
+    return await getCurrentUser(decoded.id);
 };

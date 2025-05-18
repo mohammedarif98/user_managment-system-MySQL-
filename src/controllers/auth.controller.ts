@@ -33,13 +33,11 @@ export const me = async( req: Request, res: Response ): Promise<void> => {
             res.status(401).json({ message: "Unauthorized - No user information found" });
             return;
         }
-
         const user = await getCurrentUser(userId);   
         if (!user) {
             res.status(404).json({ message: "User not found" });
             return;
-        }
-
+        } 
         res.status(200).json({ data: user, message: "User data retrieved successfully" });
     }catch(error: unknown){
         const errorMessage =  error instanceof Error ? error.message : "unknown error found"

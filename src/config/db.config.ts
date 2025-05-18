@@ -72,7 +72,7 @@ export const connectDB = async (): Promise<void> => {
         console.log('Database connection established successfully.');
 
         if (!appConfig.isProduction) {
-        await sequelize.sync({ alter: true });
+        await sequelize.sync();
         console.log('Database synchronized');
         }
     } catch (error) {
